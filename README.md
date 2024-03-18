@@ -14,7 +14,11 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
   - `import { usePathname } from 'next/navigation';`
   - `const pathname = usePathname();`
 - 数据库 Postgres
--
+  - vercel新建数据库并连接仓库
+  - .env同步配置
+  - pnpm i @vercel/postgres
+  - 创建npm run seed
+- 获取数据 以及promise.all
 
 ##
 

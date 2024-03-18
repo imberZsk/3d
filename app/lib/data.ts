@@ -33,6 +33,7 @@ export async function fetchRevenue() {
 }
 
 export async function fetchLatestInvoices() {
+  // 查询仅提取最后 5 张发票，而不是对内存中的最新发票进行排序
   try {
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
