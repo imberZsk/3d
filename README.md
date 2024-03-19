@@ -54,6 +54,12 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
     }
     ```
 
+  - 更改数据
+    - server action
+    - `const rawFormData = Object.fromEntries(formData.entries())`
+    - app/lib/actions.ts
+    - 传id到服务器可以`const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);`这样传参数
+
 ##
 
 ```js
