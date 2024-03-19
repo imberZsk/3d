@@ -59,6 +59,9 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
     - `const rawFormData = Object.fromEntries(formData.entries())`
     - app/lib/actions.ts
     - 传id到服务器可以`const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);`这样传参数
+  - 错误处理
+    - error.tsx和not-found.tsx
+  - 提高可访问性 服务器端表单验证 useFormState 钩子来处理表单错误，并将其显示给用户
 
 ##
 
