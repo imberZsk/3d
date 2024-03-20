@@ -1,9 +1,3 @@
-## Next.js App Router Course - Starter
-
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
-
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
-
 ## 已有功能
 
 - css 样式 tailwind
@@ -65,24 +59,3 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
   - 身份验证
     - `openssl rand -base64 32`
     - vercel配置环境变量
-
-##
-
-```js
-function fn(urls, maxNumber) {
-  const arr = [];
-  urls.forEach((url) => {
-    arr.push(fetch(url));
-  });
-  const num = maxNumber;
-  const foo = (array) => {
-    num++;
-    if (num === urls.length) return;
-    Promise.race(array).then((res) => {
-      foo(array.slice(num, num + 1));
-    });
-  };
-
-  foo(arr.slice(0, maxNumber));
-}
-```
