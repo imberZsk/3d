@@ -1,6 +1,6 @@
 ## 项目介绍
 
-基于 `Nextjs14、@vercel/postgres、next-auth` 的全栈后台管理系统
+基于 `nextjs14、@vercel/postgres、next-auth` 的全栈后台管理系统
 
 ## 项目亮点
 - css 样式 tailwind
