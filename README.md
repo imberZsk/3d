@@ -1,5 +1,8 @@
-## 已有功能
+## 项目介绍
 
+基于 `Nextjs14、@vercel/postgres、next-auth` 的全栈后台管理系统
+
+## 项目亮点
 - css 样式 tailwind
 - 字体 ❌
 - 图片Image
@@ -25,29 +28,8 @@
 - Partial Prerendering 部分预渲染
   - 只要用suspense，next会自动知道哪些动态哪些静态
 - 搜索和分页
-
   - url params的好处 共享/服务端渲染/跟踪
-  - ## useSearchParams usePathname useRouter
-
-    ```js
-    import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const { replace } = useRouter();
-
-    function handleSearch(term: string) {
-      const params = new URLSearchParams(searchParams);
-      if (term) {
-        params.set('query', term);
-      } else {
-        params.delete('query');
-      }
-      console.log(params.toString());
-      replace(`${pathname}?${params.toString()}`);
-    }
-    ```
-
+  - useSearchParams usePathname useRouter
   - 更改数据
     - server action
     - `const rawFormData = Object.fromEntries(formData.entries())`
