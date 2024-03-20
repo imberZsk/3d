@@ -62,6 +62,9 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
   - 错误处理
     - error.tsx和not-found.tsx
   - 提高可访问性 服务器端表单验证 useFormState 钩子来处理表单错误，并将其显示给用户
+  - 身份验证
+    - `openssl rand -base64 32`
+    - vercel配置环境变量
 
 ##
 
