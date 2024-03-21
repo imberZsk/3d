@@ -1,43 +1,12 @@
 ## 项目介绍
 
-基于 `nextjs14、@vercel/postgres、next-auth` 的全栈后台管理系统
+基于 `nextjs14`、`@vercel/postgres`、`next-auth` 的全栈后台管理系统
 
 ## 项目亮点
-- css 样式 tailwind
-- 字体 ❌
-- 图片Image
-- layout.tsx 和 page.tsx 创建路由
-- 导航 Link
-  - `import { usePathname } from 'next/navigation';`
-  - `const pathname = usePathname();`
-- 数据库 Postgres
-  - vercel新建数据库并连接仓库
-  - .env同步配置
-  - pnpm i @vercel/postgres 然后sql
-  - 创建npm run seed
-  - sql练习 TODO:
-- 获取数据 以及promise.all
-- 动态渲染和静态渲染
-  - 静态渲染可以CDN分发让网页更快，减少服务器负载，SEO
-  - 动态渲染好处：实时数据，个性化内容，请求时信息（cookie url）
-  - `import { unstable_noStore as noStore } from 'next/cache';`
-  - `noStore()`
-- streaming流解决一个接口阻塞页面问题
-  - loading.tsx页面级别，可以通过（）路由组来设置loading的范围
-  - 请求不要状态提升，写到每个组件里
-- Partial Prerendering 部分预渲染
-  - 只要用suspense，next会自动知道哪些动态哪些静态
-- 搜索和分页
-  - url params的好处 共享/服务端渲染/跟踪
-  - useSearchParams usePathname useRouter
-  - 更改数据
-    - server action
-    - `const rawFormData = Object.fromEntries(formData.entries())`
-    - app/lib/actions.ts
-    - 传id到服务器可以`const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);`这样传参数
-  - 错误处理
-    - error.tsx和not-found.tsx
-  - 提高可访问性 服务器端表单验证 useFormState 钩子来处理表单错误，并将其显示给用户
-  - 身份验证
-    - `openssl rand -base64 32`
-    - vercel配置环境变量
+
+- [x] 👠 基于`@vercel/postgres`的数据库（保存在`vercel`）
+- [x] 💍 基于`next-auth`的登陆鉴权
+- [x] 🤷 `promise.all`并发获取数据
+- [x] 🙋‍♀️ `steaming`处理接口阻塞问题
+- [x] 🤦 基于url params的搜索和分页方案，支持链接共享，服务端渲染
+- [x] 👩‍❤️‍👨 `error.tsx`处理错误，`useFormState`处理表单错误，服务器端`Zod`表单验证
