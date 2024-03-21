@@ -8,5 +8,5 @@
 - [x] 💍 基于`next-auth`的登陆鉴权
 - [x] 🤷 `promise.all`并发获取数据
 - [x] 🙋‍♀️ `steaming`处理接口阻塞问题
-- [x] 🤦 基于url params的搜索和分页方案，支持链接共享，服务端渲染
+- [x] 🤦 基于`url params`的搜索和分页方案，支持链接共享，服务端渲染
 - [x] 👩‍❤️‍👨 `error.tsx`处理错误，`useFormState`处理表单错误，服务器端`Zod`表单验证
