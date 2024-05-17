@@ -15,27 +15,21 @@ export default function SkyBox() {
     )
     camera.position.z = 5
 
-    // 加载用于天空盒的立方体纹理
-    const loader = new THREE.CubeTextureLoader()
-    const texture = loader.load([
-      // "left", "right", "top", "bottom", "front", "back"
-      '/px.png', // 正X面（右）
-      '/nx.png', // 负X面（左）
-      '/py.png', // 正Y面（上）
-      '/ny.png', // 负Y面（下）
-      '/pz.png', // 正Z面（后）
-      '/nz.png' // 负Z面（前）
-    ])
+    // "left", "right", "top", "bottom", "front", "back"
+    let picList = ['px', 'nx', 'py', 'ny', 'pz', 'nz']
+    let boxGeometry = new THREE.BoxGeometry(10, 10, 10)
 
-    const material = new THREE.MeshStandardMaterial({
-      envMap: texture, // 将环境贴图应用到材质上
-      metalness: 1,
-      roughness: 0
+    let boxMaterials: any = []
+    picList.forEach((item) => {
+      let texture = new THREE.TextureLoader().load(`/${item}.png`)
+      boxMaterials.push(new THREE.MeshBasicMaterial({ map: texture }))
     })
 
-    const geometry = new THREE.BoxGeometry(10, 10, 10)
-    const sphere = new THREE.Mesh(geometry, material)
-    scene.add(sphere)
+    const mesh = new THREE.Mesh(boxGeometry, boxMaterials)
+
+    boxGeometry.scale(10, 10, -10)
+
+    scene.add(mesh)
 
     const size = 10
     const divisions = 10

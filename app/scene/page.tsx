@@ -27,15 +27,15 @@ export default function Home() {
 
     scene.background = texture
 
-    const geometry = new THREE.SphereGeometry(1, 32, 32)
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-    const sphere = new THREE.Mesh(geometry, material)
-    scene.add(sphere)
+    // const geometry = new THREE.SphereGeometry(1, 32, 32)
+    // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+    // const sphere = new THREE.Mesh(geometry, material)
+    // scene.add(sphere)
 
-    const size = 10
-    const divisions = 10
-    const gridHelper = new THREE.GridHelper(size, divisions)
-    scene.add(gridHelper)
+    // const size = 10
+    // const divisions = 10
+    // const gridHelper = new THREE.GridHelper(size, divisions)
+    // scene.add(gridHelper)
 
     const renderer = new THREE.WebGLRenderer()
     renderer.setSize(window.innerWidth, window.innerHeight)
