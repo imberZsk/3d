@@ -28,6 +28,10 @@ export default function Home() {
     container?.appendChild(renderer.domElement)
 
     const controls = new OrbitControls(camera, renderer.domElement)
+
+    controls.enableDamping = true // 启用阻尼效果
+    controls.dampingFactor = 0.05 // 阻尼系数，取值范围为0到1
+
     controls.update()
 
     function animate() {
