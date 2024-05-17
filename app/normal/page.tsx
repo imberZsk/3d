@@ -3,61 +3,79 @@ import * as THREE from 'three'
 import { useEffect } from 'react'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-export default function SkyBox() {
-  useEffect(() => {
-    const scene = new THREE.Scene()
+// 场景
+// 相机
+// 物体 材质 网格 -> scene
+// 渲染器 -> scene camera
 
+// 光 贴图
+
+export default function Normal() {
+  useEffect(() => {
+    // 场景
+    const scene = new THREE.Scene()
+    // 相机
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     )
+
     camera.position.z = 5
 
-    // 加载用于天空盒的立方体纹理
-    const loader = new THREE.CubeTextureLoader()
-    const texture = loader.load([
-      // "left", "right", "top", "bottom", "front", "back"
-      '/px.png', // 正X面（右）
-      '/nx.png', // 负X面（左）
-      '/py.png', // 正Y面（上）
-      '/ny.png', // 负Y面（下）
-      '/pz.png', // 正Z面（后）
-      '/nz.png' // 负Z面（前）
-    ])
-
-    const material = new THREE.MeshStandardMaterial({
-      envMap: texture, // 将环境贴图应用到材质上
-      metalness: 1,
-      roughness: 0
-    })
-
-    const geometry = new THREE.BoxGeometry(10, 10, 10)
-    const sphere = new THREE.Mesh(geometry, material)
-    scene.add(sphere)
+    scene.add(camera)
 
     const size = 10
     const divisions = 10
+
     const gridHelper = new THREE.GridHelper(size, divisions)
+
     scene.add(gridHelper)
+
+    // 物体
+    const radius = 1 // 球体半径
+    const widthSegments = 1000 // 水平方向上的细分段数
+    const heightSegments = 1000 // 垂直方向上的细分段数
+
+    const geometry = new THREE.SphereGeometry(
+      radius,
+      widthSegments,
+      heightSegments
+    )
+    // 材质
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+    // 网格
+    const cube = new THREE.Mesh(geometry, material)
+
+    scene.add(cube)
+    // 渲染器
     const renderer = new THREE.WebGLRenderer()
+    // 设置渲染器大小
     renderer.setSize(window.innerWidth, window.innerHeight)
+
     const container = document.querySelector('#container')
-    container?.appendChild(renderer.domElement)
+
+    container?.append(renderer.domElement)
+
     const controls = new OrbitControls(camera, renderer.domElement)
+
     controls.update()
+
     function animate() {
       requestAnimationFrame(animate)
+
       controls.update()
+
       renderer.render(scene, camera)
     }
+
     animate()
 
     return () => {
+      // renderer.dispose()
       container?.removeChild(renderer.domElement)
     }
   }, [])
-
   return <main id="container"></main>
 }

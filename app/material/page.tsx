@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { useEffect } from 'react'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-export default function SkyBox() {
+export default function Home() {
   useEffect(() => {
     const scene = new THREE.Scene()
 
@@ -18,7 +18,6 @@ export default function SkyBox() {
     // 加载用于天空盒的立方体纹理
     const loader = new THREE.CubeTextureLoader()
     const texture = loader.load([
-      // "left", "right", "top", "bottom", "front", "back"
       '/px.png', // 正X面（右）
       '/nx.png', // 负X面（左）
       '/py.png', // 正Y面（上）
@@ -33,7 +32,7 @@ export default function SkyBox() {
       roughness: 0
     })
 
-    const geometry = new THREE.BoxGeometry(10, 10, 10)
+    const geometry = new THREE.SphereGeometry(1, 32, 32)
     const sphere = new THREE.Mesh(geometry, material)
     scene.add(sphere)
 
@@ -41,12 +40,15 @@ export default function SkyBox() {
     const divisions = 10
     const gridHelper = new THREE.GridHelper(size, divisions)
     scene.add(gridHelper)
+
     const renderer = new THREE.WebGLRenderer()
     renderer.setSize(window.innerWidth, window.innerHeight)
     const container = document.querySelector('#container')
     container?.appendChild(renderer.domElement)
+
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.update()
+
     function animate() {
       requestAnimationFrame(animate)
       controls.update()
