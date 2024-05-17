@@ -31,10 +31,6 @@ export default function SkyBox() {
 
     scene.add(mesh)
 
-    const size = 10
-    const divisions = 10
-    const gridHelper = new THREE.GridHelper(size, divisions)
-    scene.add(gridHelper)
     const renderer = new THREE.WebGLRenderer()
     renderer.setSize(window.innerWidth, window.innerHeight)
     const container = document.querySelector('#container')

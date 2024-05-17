@@ -16,7 +16,7 @@ export default function Home() {
     camera.position.z = 5
 
     const sphere = new THREE.SphereGeometry(16, 50, 50)
-    const texture = new THREE.TextureLoader().load('/outside.jpg')
+    const texture = new THREE.TextureLoader().load('/livingRoom.jpg')
     const material = new THREE.MeshBasicMaterial({ map: texture })
     const sphereMesh = new THREE.Mesh(sphere, material)
     sphere.scale(16, 16, -16)
