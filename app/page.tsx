@@ -4,10 +4,20 @@ import { useEffect } from 'react'
 
 export default function Page(): JSX.Element {
   useEffect(() => {
-    const videos = document.querySelectorAll('video')
-    videos.forEach((element) => {
-      element.play()
-    })
+    const play = () => {
+      const videos = document.querySelectorAll('video')
+      videos.forEach((element) => {
+        element.play()
+      })
+    }
+    play()
+    document.addEventListener(
+      'WeixinJSBridgeReady',
+      function () {
+        play()
+      },
+      false
+    )
   }, [])
   return (
     <div className="flex justify-center flex-col lg:pt-40 pt-8 pb-10">
