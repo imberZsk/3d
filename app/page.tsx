@@ -4,11 +4,11 @@ import Image from 'next/image'
 export default function Page(): JSX.Element {
   return (
     <div className="flex justify-center flex-col lg:pt-40 pt-8 pb-10">
-      <div className="text-4xl text-center mb-10">Demos</div>
-      <div className="mx-auto grid grid-cols-1 font-bold px-7 lg:px-20 gap-4 lg:grid-cols-3">
-        <div className="border border-gray-400 rounded-lg overflow-hidden">
+      <div className="text-4xl text-center mb-8">Demos</div>
+      <div className="mx-auto grid grid-cols-1 font-bold w-[90vw] gap-4 lg:grid-cols-3">
+        <div className="rounded-lg overflow-hidden border border-gray-400">
           <Link href="/normal">
-            <div className="w-full">
+            <div className="w-full h-[45vw] lg:h-[calc((90vw_-_32px_-_6px)/3/2)]">
               <Image
                 src="/normal.gif"
                 width={600}
@@ -21,11 +21,11 @@ export default function Page(): JSX.Element {
           </Link>
         </div>
 
-        <div className="border border-gray-400 rounded-lg overflow-hidden">
+        <div className="rounded-lg overflow-hidden border border-gray-400">
           <Link href="/scene">
-            <div className="w-full">
+            <div className="w-full h-[45vw] lg:h-[calc((90vw_-_32px_-_6px)/3/2)]">
               <Image
-                src="/skybox.gif"
+                src="/circle-texture.gif"
                 width={600}
                 height={400}
                 alt="normal"
@@ -36,11 +36,11 @@ export default function Page(): JSX.Element {
           </Link>
         </div>
 
-        <div className="border border-gray-400 rounded-lg overflow-hidden">
-          <Link href="/skybox">
-            <div className="w-full">
+        <div className="rounded-lg overflow-hidden border border-gray-400">
+          <Link href="/sky-box">
+            <div className="w-full h-[45vw] lg:h-[calc((90vw_-_32px_-_6px)/3/2)]">
               <Image
-                src="/skybox.gif"
+                src="/circle-texture.gif"
                 width={600}
                 height={400}
                 alt="normal"
@@ -51,11 +51,11 @@ export default function Page(): JSX.Element {
           </Link>
         </div>
 
-        <div className="border border-gray-400 rounded-lg overflow-hidden">
-          <Link href="/circleTexture">
-            <div className="w-full">
+        <div className="rounded-lg overflow-hidden border border-gray-400">
+          <Link href="/circle-texture">
+            <div className="w-full h-[45vw] lg:h-[calc((90vw_-_32px_-_6px)/3/2)]">
               <Image
-                src="/circleTexture.gif"
+                src="/circle-texture.gif"
                 width={600}
                 height={400}
                 alt="normal"
@@ -66,9 +66,9 @@ export default function Page(): JSX.Element {
           </Link>
         </div>
 
-        <div className="border border-gray-400 rounded-lg overflow-hidden">
-          <Link href="/earth" prefetch={false}>
-            <div className="w-full">
+        <div className="rounded-lg overflow-hidden border border-gray-400">
+          <Link href="/earth">
+            <div className="w-full h-[45vw] lg:h-[calc((90vw_-_32px_-_6px)/3/2)]">
               <Image
                 src="/earth.gif"
                 width={600}
