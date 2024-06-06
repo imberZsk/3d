@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <link rel="canonical" href="https://imber.top"></link>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
